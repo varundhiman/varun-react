@@ -3,10 +3,10 @@ import axios, { AxiosRequestConfig } from 'axios';
 export default class HttpService {
 
     static get(url: string, requestOptions: AxiosRequestConfig | undefined ) {
-        const observable = axios.get(url, requestOptions);
+        const observable = axios.get('/varunweb' + url, requestOptions);
         return observable.then((res)=>{
             console.log(res);
-            return res;
+            return res.data;
         }).catch((err)=>{
             console.log(err);
             return Promise.reject(err);
